@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[ ]:
-
+import sys
 
 def read_fasta (filename):
     seq=""
@@ -13,5 +11,10 @@ def read_fasta (filename):
             seq = seq + line
     f.close()
     return seq
-print (read_fasta('ae.fa'))
+
+if len(sys.argv) < 2:
+    print ("Need to provide filename as argument")
+    exit(1)
+
+print (read_fasta(sys.argv[1]))
 
